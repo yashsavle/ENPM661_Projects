@@ -5,8 +5,7 @@ The objective of this project is to develop a program to solve the classic 8 til
                                    
 <p align="center">
     <img src="https://sandipanweb.files.wordpress.com/2017/03/sol_b0.gif?w=676" alt="dominating_sets_example2"/>
-    
-    <figcaption align="center">Source : https://sandipanweb.files.wordpress.com/2017/03/sol_b0.gif?w=676</figcaption>
+    <em align="center">Source : https://sandipanweb.files.wordpress.com/2017/03/sol_b0.gif?w=676</em>
 </p>
 
 
