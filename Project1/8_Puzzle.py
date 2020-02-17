@@ -2,9 +2,6 @@ import numpy as np
 
 # Set Goal Configuration of the puzzle
 goal = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-#goal = np.array(goal)
-#goal = goal.reshape(3, 3)
-
 
 #defining lists to be used in the calculations
 init_node= []
@@ -19,9 +16,8 @@ for i in range(9):
     n= input()
     init_node.append(int(n))
 ct_node=init_node[:]
-#ct_node=np.array(ct_node)
 nodes.append(ct_node)
-#print(ct_node)
+
 
 
 #Function to check if the Solution Exists
@@ -54,9 +50,7 @@ def BlankTileLocation(l1):
 
 # Function to Shift Zero to LEFT
 def ActionMoveLeft(x):
-    #x = l1[:]
     x = np.array(x)
-   # print(x)
     x = x.reshape(3, 3)
     [a,b] = BlankTileLocation(x)
     temp =[]
@@ -72,7 +66,6 @@ def ActionMoveLeft(x):
 
 # Function to Shift Zero to RIGHT
 def ActionMoveRight(x):
-    #x = l1[:]
     x = np.array(x)
     x = x.reshape(3, 3)
     [a, b] = BlankTileLocation(x)
@@ -87,7 +80,6 @@ def ActionMoveRight(x):
 
 # Function to Shift Zero to UP
 def ActionMoveUp(x):
-   # x = l1[:]
     x = np.array(x)
     x = x.reshape(3, 3)
     [a, b] = BlankTileLocation(x)
@@ -102,7 +94,6 @@ def ActionMoveUp(x):
 
 # Function to Shift Zero to DOWN
 def ActionMoveDown(x):
-    #x = l1[:]
     x = np.array(x)
     x = x.reshape(3, 3)
     [a, b] = BlankTileLocation(x)
@@ -119,8 +110,6 @@ def ActionMoveDown(x):
 def exist(n1,n2):
     for n in range(0,len(n2)):
         n1= np.reshape(n1,(1,9))
-        #print(n1)
-       # print(n2[n])
         if np.array_equal(n1[0],n2[n]):
             return 1
 
@@ -141,28 +130,20 @@ def AddNode(newNode):
 
 # Function to Retrace the node Tree to obtain the solution
 def generate_path(nodes,node_info):
-    #rev = node_info.reverse()
-    #print(rev)
-   # print(nodes)
     add = node_info[-1]
-    #print(add)
     dest =  node_info[0]
-    #print(dest)
-    while add != dest:
-        #add=index[0]
-        #print(nodes[add[0]])
+    while add != dest:)
         solu.append(nodes[add[0]])
         add = node_info[add[1]]
     solu.append(nodes[add[0]])
     return solu
 
 # MAIN
+
 #Check whether Solution Exists
 chk= check_sol(init_node)
 if chk==1:
     v=0
-#for v in range(0,len(nodes)):
-    #print(ct_node)
 
     #Sequence to Generate new nodes by combinations of Left, Right, Up, Down
     while (np.array_equal(ct_node,goal)== False):
@@ -174,12 +155,10 @@ if chk==1:
                 nodes.append(a[0])
                 c = c + 1
                 node_info.append([c,v])
-               # a=np.array(a)
                 goal= np.array(goal)
 
                 #If Goal node is found break out of loop
                 if np.array_equal(a[0],goal)== True:
-                    #print('exit')
                     break
 
 
@@ -191,12 +170,10 @@ if chk==1:
                 nodes.append(a[0])
                 c = c + 1
                 node_info.append([c, v])
-                # a=np.array(a)
                 goal = np.array(goal)
 
                 # If Goal node is found break out of loop
                 if np.array_equal(a[0], goal) == True:
-                    #print('exit')
                     break
 
         test = ActionMoveUp(ct_node)
@@ -207,12 +184,10 @@ if chk==1:
                 nodes.append(a[0])
                 c = c + 1
                 node_info.append([c, v])
-                # a=np.array(a)
                 goal = np.array(goal)
 
                 # If Goal node is found break out of loop
                 if np.array_equal(a[0], goal) == True:
-                    #print('exit')
                     break
 
         test = ActionMoveDown(ct_node)
@@ -223,12 +198,10 @@ if chk==1:
                 nodes.append(a[0])
                 c = c + 1
                 node_info.append([c, v])
-                # a=np.array(a)
                 goal = np.array(goal)
 
                 # If Goal node is found break out of loop
                 if np.array_equal(a[0], goal) == True:
-                    #print('exit')
                     break
 
         v=v+1
@@ -239,17 +212,10 @@ else:
     print('This case is Unsolvable')
 
 
-#print(nodes)
-#print(node_info)
-
 # Call Function to Generate Solution
 solution = generate_path(nodes,node_info)
 solution.reverse()
 print(solution)
-#ans= check_sol(init_node)
-#print(ans)
-#loc= BlankTileLocation(init_node)
-#print(loc)
 
 # Write Solution in Text File
 nodePath= open('nodePath.txt','w')
