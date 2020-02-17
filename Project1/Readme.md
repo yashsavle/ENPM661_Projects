@@ -3,10 +3,10 @@
 The objective of this project is to develop a program to solve the classic 8 tile puzzle. The solution is found out by using Brute Force Search algorithm. The Program will try all possible moves for a current state and generate a Tree consisting of different nodes until the desired solution is obtained. Once the solution state is found, the program will backtrack the steps and store it in a list.
                                      
                                    
-<p>
+<p align="center">
     <img src="https://sandipanweb.files.wordpress.com/2017/03/sol_b0.gif?w=676" alt="dominating_sets_example2"/>
     <br>
-    <em>Source : https://sandipanweb.files.wordpress.com/2017/03/sol_b0.gif?w=676</em>
+    <em align="center">Source : https://sandipanweb.files.wordpress.com/2017/03/sol_b0.gif?w=676</em>
 </p>
 
 
