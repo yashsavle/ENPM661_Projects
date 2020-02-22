@@ -2,17 +2,14 @@ import numpy as np
 
 def print_matrix(state):
     counter = 0
-    last = 3
     for row in range(0, len(state), 3):
         if counter == 0 :
             print("-------------")
-        #for element in range(counter, len(state),3):
-        for element in range(counter, last):
+        for element in range(counter, len(state), 3):
             if element <= counter:
                 print("|", end=" ")
             print(int(state[element]), "|", end=" ")
-        counter = counter +3
-        last = last + 3
+        counter = counter +1
         print("\n-------------")
 
 fname = 'nodePath.txt'
